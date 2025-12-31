@@ -1,14 +1,15 @@
 import { serve } from "inngest/next";
 import { inngest } from "../../../inngest/client";
-import { syncUserCreation, syncUserDeletion, syncUserUpdate } from "@/inngest/functions";
+import { deleteCouponOnExpiry, syncUserCreation, syncUserDeletion, syncUserUpdation } from "@/inngest/functions";
 
 // Create an API that serves zero functions
 export const { GET, POST, PUT } = serve({
   client: inngest,
   functions: [
     syncUserCreation,
-    syncUserUpdate, 
-    syncUserDeletion
+    syncUserUpdation, 
+    syncUserDeletion,
+    deleteCouponOnExpiry
     /* your functions will be passed here later! */
   ],
 });
